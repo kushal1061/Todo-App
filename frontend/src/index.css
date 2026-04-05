@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-dm antialiased;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-syne font-bold tracking-tight text-ink-dark;
+  }
+}
+
+@layer components {
+  /* Warm Paper / Analog Utilities */
+  .paper-panel {
+    @apply bg-paper-light border-2 border-ink shadow-analog rounded-sm;
+  }
+  
+  .paper-input {
+    @apply bg-transparent border-b-2 border-ink-light px-2 py-2 focus:outline-none focus:border-accent-orange focus:bg-paper-light/50 transition-colors font-dm placeholder-ink-light/50;
+  }
+  
+  .paper-btn {
+    @apply px-4 py-2 border-2 border-ink font-syne font-bold uppercase tracking-wider text-sm shadow-analog active:shadow-none active:translate-y-[2px] active:translate-x-[2px] transition-all rounded-sm;
+  }
+  
+  .paper-btn-primary {
+    @apply bg-accent-orange text-paper-light;
+  }
+  
+  .paper-btn-outline {
+    @apply bg-paper-light text-ink hover:bg-paper-dark;
+  }
+  
+  .ruled-line {
+    @apply border-b border-ink/20 w-full;
+  }
+}
+
+/* Custom Scrollbar for a more integrated feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme('colors.paper.DEFAULT');
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.ink.light');
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.ink.DEFAULT');
+}
